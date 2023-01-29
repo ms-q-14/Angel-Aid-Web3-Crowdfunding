@@ -13,6 +13,8 @@ import money from "./money.svg";
 import loader from "./loader.svg";
 import thirdweb from "./thirdweb.png";
 import angelAidLogo from "./angelAidLogo.png";
+import angelHalo from "./angelHalo.png";
+import angelLogo from "./angelLogo.png";
 
 export {
   tagType,
@@ -30,4 +32,6 @@ export {
   loader,
   thirdweb,
   angelAidLogo,
+  angelHalo,
+  angelLogo,
 };
