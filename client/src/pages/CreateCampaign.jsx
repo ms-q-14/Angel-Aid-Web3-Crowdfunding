@@ -19,7 +19,15 @@ const CreateCampaign = () => {
     image: "",
   });
 
-  const handleSubmit = () => {};
+  const handleFormFieldChange = (fieldName, e) => {
+    setForm({ ...form, [fieldName]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(form);
+  };
 
   return (
     <div className="bg-[#1c1c24] flex justify-cetner items-center flex-col rounded-[10px] sm:p-10 p-4">
@@ -42,39 +50,47 @@ const CreateCampaign = () => {
             placeholder="Enter your name"
             inputType="text"
             value={form.name}
-            handleChange={() => {}}
+            handleChange={(e) => handleFormFieldChange("name", e)}
           />
           <FormField
-            labelName="Campaign Title *"
-            placeholder="Enter campaign title"
+            labelName="Movement Title *"
+            placeholder="Enter Movement title"
             inputType="text"
             value={form.title}
-            handleChange={() => {}}
+            handleChange={(e) => handleFormFieldChange("title", e)}
           />
         </div>
         <FormField
-          labelName="Campaign Description *"
-          placeholder="Enter campaign description"
+          labelName="Movement Description *"
+          placeholder="Enter movement description"
           isTextArea
           value={form.description}
-          handleChange={() => {}}
+          handleChange={(e) => handleFormFieldChange("description", e)}
         />
-
+        <div className="flex flex-wrap gap-[40px]">
+          <FormField
+            labelName="Goal *"
+            placeholder="ETH 0.10"
+            inputType="text"
+            value={form.target}
+            handleChange={(e) => handleFormFieldChange("target", e)}
+          />
+          <FormField
+            labelName="Movement Duration *"
+            placeholder="End Date"
+            inputType="date"
+            value={form.deadline}
+            handleChange={(e) => handleFormFieldChange("deadline", e)}
+          />
+        </div>
         <FormField
-          labelName="Goal *"
-          placeholder="ETH 0.10"
-          inputType="text"
-          value={form.target}
-          handleChange={() => {}}
+          labelName="Movement Image *"
+          placeholder="Image URL of your movement"
+          inputType="url"
+          value={form.image}
+          handleChange={(e) => handleFormFieldChange("image", e)}
         />
-        <FormField
-          labelName="Campaign Duration *"
-          placeholder="End Date"
-          inputType="date"
-          value={form.deadline}
-          handleChange={() => {}}
-        />
-
+        {/* Later convert to image input that uses AWS */}
         <div className="flex justify-center items-center mt-[40px]">
           <CustomButton
             btnType="submit"
