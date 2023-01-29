@@ -16,7 +16,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
         {title} ({campaigns.length})
       </h1>
 
-      <div className="flex flex-wrap mt-[20px] gap-[26px]">
+      <div className="flex flex-wrap mt-[20px] gap-[26px] flex-row-reverse justify-end">
         {isLoading && (
           <img
             src={loader}

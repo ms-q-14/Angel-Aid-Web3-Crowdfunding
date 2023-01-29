@@ -3,7 +3,7 @@ import { useStateContext } from "../context";
 import { DisplayCampaigns } from "../components";
 
 const Home = () => {
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [campaigns, setCampaigns] = useState([]);
   const { address, contract, getCampaigns } = useStateContext();
 
@@ -14,18 +14,20 @@ const Home = () => {
     setIsLoading(false);
   };
 
+  campaigns.forEach((campaign) => {
+    console.log(campaign.title);
+  });
+
   useEffect(() => {
     if (contract) fetchCampaigns();
   }, [address, contract]);
-
-  console.log("Home campaigns", campaigns.length);
 
   return (
     <div>
       <DisplayCampaigns
         title="Active Movements"
         campaigns={campaigns}
-        isLoading={isloading}
+        isLoading={isLoading}
       />
     </div>
   );

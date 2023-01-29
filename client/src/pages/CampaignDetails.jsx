@@ -30,9 +30,17 @@ const CampaignDetails = () => {
 
   const handleDonate = async () => {
     setIsLoading(true);
-
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const balance = await signer.getBalance();
+    if (balance.lt(ethers.utils.parseEther(amount))) {
+      alert(
+        "Insufficient ETH in your account! Please add some funds or try a lower amount."
+      );
+      setIsLoading(false);
+      return;
+    }
     await donate(state.pId, amount);
-
     navigate("/");
     setIsLoading(false);
   };
