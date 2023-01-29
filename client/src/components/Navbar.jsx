@@ -4,13 +4,13 @@ import { CustomButton } from "./";
 import { logo, menu, search, angelAidLogo } from "../assets";
 import { navlinks } from "../constants";
 import { connect } from "mongoose";
+import { useStateContext } from "../context";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState("dashboard");
   const [toggleDrawer, setToggleDrawer] = useState(false);
-
-  const address = "0xabc";
+  const { address, connect } = useStateContext();
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
@@ -33,11 +33,11 @@ const Navbar = () => {
       <div className="sm:flex hidden flex-row justify-end gap-4">
         <CustomButton
           btnType="button"
-          title={address ? "Create a movement" : "Connect"}
-          styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
+          title={address ? "Create a Movement" : "Connect"}
+          styles={address ? "bg-[#ffef56] text-[#1c1c24]" : "bg-[#1dc071]"}
           handleClick={() => {
             if (address) navigate("create-campaign");
-            else "connect()";
+            else connect();
           }}
         />
 
@@ -107,11 +107,11 @@ const Navbar = () => {
           <div className="flex mx-4">
             <CustomButton
               btnType="button"
-              title={address ? "Create a movement" : "Connect"}
-              styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
+              title={address ? "Create a Movement" : "Connect"}
+              styles={address ? "bg-[#ffef56] text-[#1c1c24]" : "bg-[#1dc071]"}
               handleClick={() => {
                 if (address) navigate("create-campaign");
-                else "connect()";
+                else connect();
               }}
             />
           </div>
