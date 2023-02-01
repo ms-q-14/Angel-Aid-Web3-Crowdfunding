@@ -53,7 +53,7 @@ https://user-images.githubusercontent.com/85078191/216109782-0f67be26-b02f-4ff0-
 
 Donating to a movement:
 
-https://user-images.githubusercontent.com/85078191/216112493-03d1e103-f621-4dbe-b5e2-c7f3c644e5c8.mov
+https://user-images.githubusercontent.com/85078191/216119287-ec358d3b-16f4-4219-8b1e-a699dc49c92b.mp4
 
 Creating a movement:
 
